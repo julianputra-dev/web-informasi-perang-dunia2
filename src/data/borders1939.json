@@ -1,0 +1,25 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Jerman Nazi",
+        "alliance": "axis",
+        "color": "#ef4444"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [6.0, 47.5],
+            [22.0, 47.5],
+            [22.0, 55.0],
+            [6.0, 55.0],
+            [6.0, 47.5]
+          ]
+        ]
+      }
+    }
+  ]
+}
