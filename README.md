@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌍 Arsip Interaktif Perang Dunia II
 
-## Getting Started
+Aplikasi web edukasi interaktif yang menyajikan sejarah Perang Dunia II melalui peta, garis waktu, dan arsip peristiwa penting dari tahun 1938–1946.
 
-First, run the development server:
+## ✨ Fitur
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Peta Interaktif** — Visualisasi batas negara tahun 1939 menggunakan data GeoJSON historis
+- **Garis Waktu** — Slider untuk menjelajahi peristiwa berdasarkan tahun
+- **Informasi Edukatif** — Latar belakang, kubu yang terlibat, dan dampak perang
+
+## 🛠 Tech Stack
+
+| Teknologi | Kegunaan |
+|-----------|----------|
+| [Next.js](https://nextjs.org) | Framework React full-stack |
+| [Leaflet](https://leafletjs.com) + [React Leaflet](https://react-leaflet.js.org) | Peta interaktif |
+| [Supabase](https://supabase.com) | Database peristiwa sejarah |
+| [Tailwind CSS](https://tailwindcss.com) | Styling |
+| [TypeScript](https://typescriptlang.org) | Type safety |
+
+## 📁 Struktur Proyek
+
+```
+src/
+├── app/                    # Halaman Next.js (App Router)
+│   ├── layout.tsx          # Root layout & metadata
+│   └── page.tsx            # Halaman utama
+├── components/
+│   ├── map/                # Komponen peta
+│   │   ├── InteractiveMap.tsx
+│   │   └── map-utils.ts
+│   └── sections/           # Section halaman utama
+│       ├── HeroSection.tsx
+│       ├── BackgroundSection.tsx
+│       ├── TimelineSection.tsx
+│       ├── AlliancesSection.tsx
+│       ├── ImpactSection.tsx
+│       └── Footer.tsx
+├── data/
+│   └── geojson/            # Data GeoJSON batas negara
+│       └── world-1939.json
+├── lib/
+│   └── supabase.ts         # Supabase client
+└── types/
+    └── index.ts            # Shared TypeScript interfaces
+
+scripts/
+└── map-processing/         # Script untuk memproses data peta
+    ├── extract_map.py
+    └── data/               # Data mentah (di-gitignore)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Menjalankan Proyek
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Install dependencies
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Jalankan development server
+npm run dev
+```
 
-## Learn More
+Buka [http://localhost:3000](http://localhost:3000) di browser.
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Buat file `.env.local` dengan konfigurasi berikut:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+NEXT_PUBLIC_SUPABASE_URL=<url_supabase_anda>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon_key_supabase_anda>
+```
 
-## Deploy on Vercel
+## 📜 Lisensi
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Dibuat untuk tujuan edukasi.
